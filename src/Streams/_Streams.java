@@ -48,7 +48,8 @@ public class _Streams {
 
 
         //given a list of numbers, double the even numbers and total the numbers
-        List<Integer> doubleEvenNum = Stream.of(1,2,3,4,5,6,7,8,9)
+        List<Integer> numbers = List.of(1,2,3,4,5,6,7,8,9);
+        List<Integer> doubleEvenNum = numbers.stream()
                 .map(num -> (num % 2 == 0) ? num *= 2 : num)
                 .collect(Collectors.toList());
         System.out.println(doubleEvenNum.stream().reduce(1, (num1,num2) -> num1 * num2));
@@ -65,6 +66,15 @@ public class _Streams {
                                    .reduce(5,Integer::sum));
 
          */
+
+        //Double even values then add said values
+        List<Integer> doubleEven = numbers.stream()
+                                          .filter(num -> num % 2 == 0)
+                                          .map(num -> num * 2)
+                                          .collect(Collectors.toList());
+
+
+        System.out.println(doubleEven);
 
     }
 
